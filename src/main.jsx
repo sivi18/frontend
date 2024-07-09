@@ -7,7 +7,7 @@ import Dashboard from "./components/Dashboard.jsx";
 import AddProfile from "./components/AddProfile.jsx";
 import Layout from "./Layout.jsx";
 import ListProfile from "./components/ListProfile.jsx";
-import Logout from "./components/Logout.jsx";
+import LogoutUser from "./components/Logout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/logout",
-        element: <Logout />,
+        element: <LogoutUser />,
       },
     ],
   },

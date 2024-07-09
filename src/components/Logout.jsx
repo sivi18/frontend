@@ -1,7 +1,7 @@
 import React from "react";
 
-function Logout() {
-  return <div>Logout</div>;
+function LogoutUser() {
+  return <div>LogoutUser</div>;
 }
 
-export default Logout;
+export default LogoutUser;
