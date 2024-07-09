@@ -2,103 +2,115 @@ import React, { useState } from "react";
 import profile from "../assets/profile.jpg";
 import {
   FaArrowCircleLeft,
+  FaChevronDown,
+  FaChevronUp,
   FaHome,
-  FaSearch,
   FaUser,
-  FaCog,
-  FaChartBar,
-  FaEnvelope,
 } from "react-icons/fa";
+import { IoMdAddCircle, IoMdLogOut } from "react-icons/io";
+import { CiCircleList } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   const [open, setOpen] = useState(true);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const handleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
 
   return (
     <div className="flex">
       <div
         className={`${
           open ? "w-72" : "w-20"
-        } bg-blue-800 h-screen p-5 pt-8 relative duration-300`}
+        } bg-slate-50 h-screen p-5 pt-8 relative duration-300`}
       >
         <button
           className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
-           border-2 rounded-full ${!open && "rotate-180"}`}
+           border-2 rounded-full  ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
         >
-          <FaArrowCircleLeft color="white" size={18} />
+          <FaArrowCircleLeft color="purple" size={18} />
         </button>
         <div className="flex gap-x-4 items-center justify-start">
           <img
             src={profile}
             onClick={() => setOpen(!open)}
-            className={`cursor-pointer duration-500 h-8 w-8 rounded-full ${
+            className={`cursor-pointer duration-500 h-8 w-8 rounded-full shadow-lg ${
               open && "rotate-[360deg] h-12 w-12"
             }`}
           />
           <h1
-            className={`text-white origin-left font-medium text-xl duration-200 ${
+            className={`text-purple-500 origin-left font-medium text-xl duration-200 ${
               !open && "scale-0"
             }`}
           >
-            SideBar Task
+            DSR Secure Tech
           </h1>
         </div>
         <ul className="flex pt-10 flex-col gap-7">
-          <li className="flex rounded-md p-2 cursor-pointer hover:bg-slate-200 hover:text-black text-gray-300 text-sm items-center gap-x-4">
-            <FaHome size={20} />
-            <h1
+          <li className="flex rounded-md p-2 shadow-sm cursor-pointer bg-purple-300 hover:text-white text-gray-300 text-sm items-center gap-x-4 select-none">
+            <FaHome size={20} color="black" />
+            <Link
+              to={"/"}
               className={`${
                 !open && "hidden"
-              }  text-white origin-left font-medium text-xl duration-200 hover:text-black`}
+              }  text-purple-500 origin-left font-medium text-xl duration-200 hover:text-black`}
             >
               Dashboard
-            </h1>
+            </Link>
           </li>
+          <li
+            className="flex rounded-md p-2 shadow-sm cursor-pointer hover:bg-purple-300 hover:text-white text-gray-300 text-sm items-center gap-x-4 select-none"
+            onClick={handleDropdown}
+          >
+            <FaUser size={20} color="black" />
+            {open && (
+              <h1
+                className={`text-purple-500 font-medium text-xl duration-200 hover:text-black`}
+              >
+                Profile
+              </h1>
+            )}
+            {open &&
+              (dropdownOpen ? (
+                <FaChevronUp size={18} color="black" className="ml-20" />
+              ) : (
+                <FaChevronDown size={18} color="black" className="ml-20" />
+              ))}
+          </li>
+          {open && dropdownOpen && (
+            <div className="flex flex-col p-2 gap-2 rounded-lg w-fit absolute top-56 left-20 z-10 shadow-lg transition-all duration-300">
+              <Link
+                to={"/addProfile"}
+                className="flex items-center gap-5 p-2 hover:bg-purple-400 rounded-md select-none"
+              >
+                <IoMdAddCircle size={20} />
+                <span>Add Profile</span>
+              </Link>
+              <Link
+                to={"/listProfile"}
+                className="flex items-center gap-5 p-2 hover:bg-purple-400 rounded-md select-none"
+              >
+                <CiCircleList size={20} />
+                List Profile
+              </Link>
+            </div>
+          )}
 
-          <li className="flex rounded-md p-2 cursor-pointer hover:bg-slate-200 hover:text-black text-gray-300 text-sm items-center gap-x-4">
-            <FaUser size={20} />
-            <h1
+          <li className="flex rounded-md p-2 cursor-pointer bg-red-500 text-gray-300 text-sm hover:bg-red-300 hover:text-red-500 items-center origin-left gap-x-4 mt-[450px]">
+            <IoMdLogOut size={20} />
+            <Link
+              to={"/logout"}
               className={`${
                 !open && "hidden"
               }  text-white origin-left font-medium text-xl duration-200 hover:text-black`}
             >
-              Profile
-            </h1>
-          </li>
-          <li className="flex rounded-md p-2 cursor-pointer hover:bg-slate-200 hover:text-black text-gray-300 text-sm items-center gap-x-4">
-            <FaCog size={20} />
-            <h1
-              className={`${
-                !open && "hidden"
-              }  text-white origin-left font-medium text-xl duration-200 hover:text-black`}
-            >
-              Settings
-            </h1>
-          </li>
-          <li className="flex rounded-md p-2 cursor-pointer hover:bg-slate-200 hover:text-slate-900 text-gray-300 text-sm items-center gap-x-4">
-            <FaChartBar size={20} />
-            <h1
-              className={`${
-                !open && "hidden"
-              } o text-white origin-left font-medium text-xl duration-200 hover:text-black`}
-            >
-              Analytics
-            </h1>
-          </li>
-          <li className="flex rounded-md p-2 cursor-pointer hover:bg-slate-200 hover:text-slate-950 text-gr text-gray-300 text-sm items-center gap-x-4">
-            <FaEnvelope size={20} />
-            <h1
-              className={`${
-                !open && "hidden"
-              }  text-white origin-left font-medium text-xl duration-200 hover:text-black`}
-            >
-              Messages
-            </h1>
+              Log Out
+            </Link>
           </li>
         </ul>
-      </div>
-      <div className="h-screen flex-1 p-7 bg-slate-800">
-        <h1 className="text-2xl font-semibold">Home Page</h1>
       </div>
     </div>
   );
