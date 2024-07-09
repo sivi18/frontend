@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import profile from "../assets/profile.jpg";
 import {
   FaArrowCircleLeft,
   FaHome,
@@ -24,13 +25,14 @@ function Sidebar() {
            border-2 rounded-full ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
         >
-          <FaArrowCircleLeft color="white" size={20} />
+          <FaArrowCircleLeft color="white" size={18} />
         </button>
-        <div className="flex gap-x-4 items-center">
+        <div className="flex gap-x-4 items-center justify-start">
           <img
-            src="./src/assets/logo.png"
-            className={`cursor-pointer duration-500 ${
-              open && "rotate-[360deg]"
+            src={profile}
+            onClick={() => setOpen(!open)}
+            className={`cursor-pointer duration-500 h-8 w-8 rounded-full ${
+              open && "rotate-[360deg] h-12 w-12"
             }`}
           />
           <h1
@@ -41,42 +43,57 @@ function Sidebar() {
             SideBar Task
           </h1>
         </div>
-        <ul className="pt-6">
+        <ul className="flex pt-10 flex-col gap-7">
           <li className="flex rounded-md p-2 cursor-pointer hover:bg-slate-200 hover:text-black text-gray-300 text-sm items-center gap-x-4">
             <FaHome size={20} />
-            <span className={`${!open && "hidden"} origin-left duration-200`}>
+            <h1
+              className={`${
+                !open && "hidden"
+              }  text-white origin-left font-medium text-xl duration-200 hover:text-black`}
+            >
               Dashboard
-            </span>
+            </h1>
           </li>
-          <li className="flex rounded-md p-2 cursor-pointer hover:bg-slate-200 hover:text-black text-gray-300 text-sm items-center gap-x-4">
-            <FaSearch size={20} />
-            <span className={`${!open && "hidden"} origin-left duration-200`}>
-              Search
-            </span>
-          </li>
+
           <li className="flex rounded-md p-2 cursor-pointer hover:bg-slate-200 hover:text-black text-gray-300 text-sm items-center gap-x-4">
             <FaUser size={20} />
-            <span className={`${!open && "hidden"} origin-left duration-200`}>
+            <h1
+              className={`${
+                !open && "hidden"
+              }  text-white origin-left font-medium text-xl duration-200 hover:text-black`}
+            >
               Profile
-            </span>
+            </h1>
           </li>
           <li className="flex rounded-md p-2 cursor-pointer hover:bg-slate-200 hover:text-black text-gray-300 text-sm items-center gap-x-4">
             <FaCog size={20} />
-            <span className={`${!open && "hidden"} origin-left duration-200`}>
+            <h1
+              className={`${
+                !open && "hidden"
+              }  text-white origin-left font-medium text-xl duration-200 hover:text-black`}
+            >
               Settings
-            </span>
+            </h1>
           </li>
-          <li className="flex rounded-md p-2 cursor-pointer hover:bg-slate-200 hover:text-black text-gray-300 text-sm items-center gap-x-4">
+          <li className="flex rounded-md p-2 cursor-pointer hover:bg-slate-200 hover:text-slate-900 text-gray-300 text-sm items-center gap-x-4">
             <FaChartBar size={20} />
-            <span className={`${!open && "hidden"} origin-left duration-200`}>
+            <h1
+              className={`${
+                !open && "hidden"
+              } o text-white origin-left font-medium text-xl duration-200 hover:text-black`}
+            >
               Analytics
-            </span>
+            </h1>
           </li>
-          <li className="flex rounded-md p-2 cursor-pointer hover:bg-slate-200 hover:text-black text-gray-300 text-sm items-center gap-x-4">
+          <li className="flex rounded-md p-2 cursor-pointer hover:bg-slate-200 hover:text-slate-950 text-gr text-gray-300 text-sm items-center gap-x-4">
             <FaEnvelope size={20} />
-            <span className={`${!open && "hidden"} origin-left duration-200`}>
+            <h1
+              className={`${
+                !open && "hidden"
+              }  text-white origin-left font-medium text-xl duration-200 hover:text-black`}
+            >
               Messages
-            </span>
+            </h1>
           </li>
         </ul>
       </div>
