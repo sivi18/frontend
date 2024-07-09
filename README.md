@@ -86,6 +86,7 @@ To create the sidebar, we follow these steps:
    In `src/components/Sidebar.js`, create a functional component for the sidebar:
 
    ```jsx
+   
 import React, { useState } from "react";
 import profile from "../assets/profile.jpg";
 import {
@@ -193,7 +194,6 @@ function Sidebar() {
 }
 
 export default Sidebar;
-   export default Sidebar;
    ```
 
 2. **Include the Sidebar Component in the App:**
