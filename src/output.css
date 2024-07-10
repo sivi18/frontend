@@ -590,8 +590,16 @@ video {
   margin-top: 1.25rem;
 }
 
+.mt-\[400px\] {
+  margin-top: 400px;
+}
+
 .mt-\[460px\] {
   margin-top: 460px;
+}
+
+.mt-\[420px\] {
+  margin-top: 420px;
 }
 
 .block {
@@ -838,6 +846,16 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.text-slate-200 {
+  --tw-text-opacity: 1;
+  color: rgb(226 232 240 / var(--tw-text-opacity));
 }
 
 .shadow-lg {

@@ -50,15 +50,17 @@ function Sidebar() {
           </h1>
         </div>
         <ul className="flex pt-10 flex-col gap-7">
-          <li className="flex rounded-md p-2 shadow-sm cursor-pointer bg-purple-300 hover:text-white text-gray-300 text-sm items-center gap-x-4 select-none">
-            <FaHome size={20} color="black" />
+          <li>
             <Link
               to={"/"}
-              className={`${
-                !open && "hidden"
-              }  text-purple-500 origin-left font-medium text-xl duration-200 hover:text-black`}
+              className="flex rounded-md p-2 shadow-sm cursor-pointer bg-purple-300 hover:text-white text-gray-300 text-sm items-center gap-x-4 select-none"
             >
-              Dashboard
+              <FaHome size={20} color="black" />
+              <span
+                className={`${open ? "text-xl text-purple-500" : "hidden"}`}
+              >
+                Dashboard
+              </span>
             </Link>
           </li>
           <li
@@ -99,15 +101,17 @@ function Sidebar() {
             </div>
           )}
 
-          <li className="flex rounded-md p-2 cursor-pointer bg-red-500 text-gray-300 text-sm hover:bg-red-300 hover:text-red-500 items-center origin-left gap-x-4 mt-[460px]">
-            <IoMdLogOut size={20} />
+          <li>
             <Link
               to={"/logout"}
-              className={`${
-                !open && "hidden"
-              }  text-white origin-left font-medium text-xl duration-200 hover:text-black`}
+              className={`flex rounded-md p-2 cursor-pointer bg-red-500 text-gray-300 text-sm hover:bg-red-300 hover:text-red-500 items-center origin-left gap-x-4 ${
+                open ? "mt-[460px]" : "mt-[420px]"
+              }`}
             >
-              Log Out
+              <IoMdLogOut size={20} />
+              <span className={`${open ? "text-xl text-slate-200" : "hidden"}`}>
+                Log Out
+              </span>
             </Link>
           </li>
         </ul>
