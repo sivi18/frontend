@@ -99,7 +99,7 @@ function Sidebar() {
             </div>
           )}
 
-          <li className="flex rounded-md p-2 cursor-pointer bg-red-500 text-gray-300 text-sm hover:bg-red-300 hover:text-red-500 items-center origin-left gap-x-4 mt-[450px]">
+          <li className="flex rounded-md p-2 cursor-pointer bg-red-500 text-gray-300 text-sm hover:bg-red-300 hover:text-red-500 items-center origin-left gap-x-4 mt-[500px]">
             <IoMdLogOut size={20} />
             <Link
               to={"/logout"}
