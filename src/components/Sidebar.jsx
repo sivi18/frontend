@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import profile from "../assets/profile.jpg";
+import dsrLogo from "../assets/dsrLogo.jpeg"
 import {
   FaArrowCircleLeft,
   FaChevronDown,
@@ -35,7 +35,7 @@ function Sidebar() {
         </button>
         <div className="flex gap-x-4 items-center justify-start">
           <img
-            src={profile}
+            src={dsrLogo}
             onClick={() => setOpen(!open)}
             className={`cursor-pointer duration-500 h-8 w-8 rounded-full shadow-lg ${
               open && "rotate-[360deg] h-12 w-12"
